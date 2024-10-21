@@ -1,0 +1,124 @@
+\documentclass[UTF8]{ctexart}
+\usepackage{geometry, CJKutf8}
+\geometry{margin=1.5cm, vmargin={0pt,1cm}}
+\setlength{\topmargin}{-1cm}
+\setlength{\paperheight}{29.7cm}
+\setlength{\textheight}{25.3cm}
+
+% useful packages.
+\usepackage{amsfonts}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsthm}
+\usepackage{enumerate}
+\usepackage{graphicx}
+\usepackage{multicol}
+\usepackage{fancyhdr}
+\usepackage{layout}
+\usepackage{listings}
+\usepackage{float, caption}
+
+\lstset{
+    basicstyle=\ttfamily, basewidth=0.5em
+}
+
+% some common command
+\newcommand{\dif}{\mathrm{d}}
+\newcommand{\avg}[1]{\left\langle #1 \right\rangle}
+\newcommand{\difFrac}[2]{\frac{\dif #1}{\dif #2}}
+\newcommand{\pdfFrac}[2]{\frac{\partial #1}{\partial #2}}
+\newcommand{\OFL}{\mathrm{OFL}}
+\newcommand{\UFL}{\mathrm{UFL}}
+\newcommand{\fl}{\mathrm{fl}}
+\newcommand{\op}{\odot}
+\newcommand{\Eabs}{E_{\mathrm{abs}}}
+\newcommand{\Erel}{E_{\mathrm{rel}}}
+
+\begin{document}
+
+\pagestyle{fancy}
+\fancyhead{}
+\lhead{楠迪, 3230101283}
+\chead{数据结构与算法第四次作业}
+\rhead{Oct.21th, 2024}
+
+\section{测试程序的设计思路}
+
+\LARGE{1.初始化功能测试} \\
+\large{}
+我首先创建了一个链表，测试了默认构造函数和push与size函数，创建一个空的对象 myList。输出是否成功初始化为空列表。
+使用 pushback 方法依次添加元素 10, 20, 30 到列表尾部。输出列表当前大小。
+使用 front和back方法获取并输出列表的第一个和最后一个元素。
+使用 pushfront 方法在列表头部插入元素 0。输出当前的第一个元素。\\
+\LARGE{2.迭代器功能测试} \\ 
+\large{}
+创建一个迭代器 it 指向列表的开始。
+输出当前指向的元素，并进行前置递增。
+输出前置递增后指向的元素。\\ 
+利用迭代器进行遍历。\\ 
+\LARGE{3.list函数功能测试} \large{}\\ 
+使用 popfront 删除头部元素，并输出删除操作信息。
+使用 popback 删除尾部元素，并输出删除后的列表大小。\\ 
+再次遍历\\ 
+让迭代器指向第二个元素位置，并使用 insert 方法在此位置插入元素 15。输出插入后的列表内容。
+随后在边界位置插入新元素5 和 20\\ 
+让迭代器指向第二个元素，并使用 erase 方法删除该元素。输出删除后的列表内容。\\ 
+测试拷贝构造函数。创建 copyList，使用 myList 初始化。遍历并输出拷贝后的列表内容。\\ 
+初始化列表构造函数测试,创建一个新的列表 initList，使用初始化列表 {1, 2, 3, 4, 5}。
+输出初始化列表的内容。\\ 
+测试调用 clear 方法清空 myList。输出清空后的列表状态（是否为空）。
+
+
+
+\section{测试的结果}
+
+测试结果一切正常。\\ 
+\small{}初始化一个空的 List: 成功\\
+向 List 尾部插入元素 10, 20, 30\\
+List 的大小: 3\\
+List 的第一个元素: 10\\
+List 的最后一个元素: 30\\
+向 List 头部插入元素 0\\
+List 的第一个元素: 0\\
+前置递增前指向的元素: 0\\
+前置递增后指向的元素: 10\\
+后置递增前指向的元素: 10\\
+后置递增后指向的元素: 20\\
+前置递减后指向的元素: 10\\
+后置递减前指向的元素: 10\\
+后置递减后指向的元素: 0\\
+当前迭代器解引用的元素: 0\\
+it 和 it2 是否相等 (预期: 是): 是\\
+it 和 it2 是否相等 (预期: 否): 否\\
+正向遍历 List: 0 10 20 30 \\
+删除 List 的头部元素\\
+删除 List 的尾部元素\\
+删除后的 List 大小: 2\\
+删除后遍历 List: 10 20 \\
+在第二个元素前插入 15 后的 List: 10 15 20 \\
+删除第二个元素后的 List: 10 20 \\
+拷贝后的 List: 10 20 \\
+使用初始化列表构造的 List: 1 2 3 4 5 \\
+head 指针的地址: 1\\
+清空 List 后，List 是否为空: 是\\
+
+\Large{我用 valgrind 进行测试，发现没有发生内存泄露。}
+\large{}
+\section{（可选）bug报告}
+
+我发现了一个 bug，触发条件如下：
+
+\begin{enumerate}
+    \item 首先……
+    \item 然后……
+    \item 此时发现……
+\end{enumerate}
+
+据我分析，它出现的原因是：
+
+\end{document}
+
+%%% Local Variables: 
+%%% mode: latex
+%%% TeX-master: t
+%%% End: 
